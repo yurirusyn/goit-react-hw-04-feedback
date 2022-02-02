@@ -36,10 +36,12 @@ class App extends Component {
     const total = this.countTotalFeedback();
     const percentage = this.countPositiveFeedbackPercentage();
     const { good, neutral, bad } = this.state;
+    const keys = Object.keys(this.state);
+
     return (
       <>
         <Section title="Please leave feedback">
-          <FeedbackOptions onLeaveFeedback={this.onLeaveFeedback} />
+          <FeedbackOptions onLeaveFeedback={this.onLeaveFeedback} keys={keys} />
         </Section>
         <Section title="Statistics">
           {total === 0 ? (

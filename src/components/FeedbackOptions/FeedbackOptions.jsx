@@ -1,18 +1,21 @@
 import s from './feedbackOptions.css';
 import PropTypes from 'prop-types';
 
-const FeedbackOptions = ({ onLeaveFeedback }) => {
+const FeedbackOptions = ({ onLeaveFeedback, keys }) => {
   return (
     <div>
-      <button name="good" type="button" onClick={onLeaveFeedback}>
-        Good
-      </button>
-      <button name="neutral" type="button" onClick={onLeaveFeedback}>
-        Neutral
-      </button>
-      <button name="bad" type="button" onClick={onLeaveFeedback}>
-        Bad
-      </button>
+      {keys.map(item => {
+        return (
+          <button
+            key={item}
+            name={item}
+            type="button"
+            onClick={onLeaveFeedback}
+          >
+            {item}
+          </button>
+        );
+      })}
     </div>
   );
 };
